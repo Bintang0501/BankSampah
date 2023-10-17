@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\AutentikasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", [AppController::class, "dashboard"]);
+
+Route::prefix('login')->group(function () {
+    Route::get("/", [AutentikasiController::class, "login"]);
+    Route::post("/", [AutentikasiController::class, "post_login"]);
 });
