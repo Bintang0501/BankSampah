@@ -12,10 +12,8 @@ class AutentikasiController extends Controller
         return view("authentication.login.index");
     }
 
-    public function post_login(Request $req)
+    public function data()
     {
-        return DB::transaction(function () {
-            echo "ada";
-        });
+        return DB::transaction() use ()
     }
 }
